@@ -16,10 +16,10 @@ $(document).ready(function () {
                             </td>
                             <td>${task.apellido}</td>
                             <td>
-                                <button class="task-update btn btn-primary">EDITAR</button>
+                                <button class="task-update btn btn-primary">EDIT</button>
                             </td>
                             <td>
-                                <button class="btn btn-danger" data-toggle="modal" data-target="#modal2">ELIMINAR</button>
+                                <button class="btn btn-danger" data-toggle="modal" data-target="#modal2">DELETE</button>
                             </td>
                         </tr>
                         `
@@ -33,11 +33,13 @@ $(document).ready(function () {
             nombre: $('#nombre').val(),
             apellido: $('#apellido').val(),
             id: $('#taskId').val(),
+
         }
         const url = modificar === false ? 'insertar.php' : 'modificar.php';
         $.post(url, datos, (response) => {
-            obtenerTareas(); 
+            obtenerTareas();
         });
+        
         
     });
     $(document).on('click', '.task-delete', (e) => {
